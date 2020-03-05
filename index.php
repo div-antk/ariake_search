@@ -19,11 +19,11 @@ $gameData = getGameData($_GET);
     <form method="get">
       <div class="form-group">
         <label for="InputTitle">タイトル</label>
-        <input name="title" class="form control" id="InputTitle" value="<?php echo isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
+        <input name="title" class="form-control" id="InputTitle" value="<?php echo isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
       </div>
       <div class="form-group">
         <label for="InputPlayer">人数</label>
-        <select name="player" class="form control" id="InputPlayer">
+        <select name="player" class="form-control" id="InputPlayer">
           <option value="0" <?php echo isset($_GET['player']) ? 'selected' : '' ?>>選択しない</option>
           <option value="1" <?php echo isset($_GET['player']) && $_GET['player'] == '1' ? 'selected' : '' ?>>1人</option>
           <option value="2" <?php echo isset($_GET['player']) && $_GET['player'] == '2' ? 'selected' : '' ?>>2人</option>
@@ -34,7 +34,7 @@ $gameData = getGameData($_GET);
       </div>
       <div class="form-group">
         <label for="InputTime">時間</label>
-        <select name="time" class="form control" id="InputTime">
+        <select name="time" class="form-control" id="InputTime">
           <option value="0" <?php echo isset($_GET['time']) ? 'selected' : '' ?>>選択しない</option>
           <option value="30" <?php echo isset($_GET['time']) && $_GET['time'] == '1' ? 'selected' : '' ?>>30分以下</option>
           <option value="30-60" <?php echo isset($_GET['time']) && $_GET['time'] == '2' ? 'selected' : '' ?>>30〜60分</option>

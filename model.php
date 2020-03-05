@@ -9,22 +9,23 @@ function getGameData($params){
 
   $where = [];
   if(!empty($params['title'])){
-    $where[] = "title like '%{params['title']}%'";
+    $where[] = "title like '%.{params['title']}.%'";
   }
   if(!empty($params['player'])){
-    $where[] = 'player = ' . $params['player'];
+    $where[] = 'player <= ' . ((int)$params['player']);
+    // $where[] = 'player <= ' . ((int)$params['player']) . ' AND player <= ' .(int)$params['player'];
   }
   if(!empty($params['time'])){
-    $where[] = 'time = ' . $params['time'];
-
+    $where[] = 'time <= ' . ((int)$params['time'] + 30) . ' AND time >= ' .(int)$params['time'];
   }
   if($where)
   {
-    $whereSql = implode(' AND', $where);
-    // $sql = 'select * from gamelist where ' . $whereSql;
-    $sql = 'SELECT * FROM gamelist WHERE time BETWEEN 2 AND 3 ' . $whereSql;
+    $whereSql = implode(' AND ', $where);
+    $sql = 'select * from gamelist where ' . $whereSql;
+    // $sql = 'SELECT * FROM gamelist WHERE time BETWEEN 2 AND 3 ' . $whereSql;
   } else {
     $sql = 'select * from gamelist';
+    // $sql = print '';
   }
 
   $GameDataSet = $Mysqli->query($sql);
@@ -34,3 +35,4 @@ function getGameData($params){
   }
   return $result;
 }
+?>
