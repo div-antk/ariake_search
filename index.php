@@ -19,28 +19,28 @@ $gameData = getGameData($_GET);
     <form method="get">
       <div class="form-group">
         <label for="InputTitle">タイトル</label>
-        <input name="title" class="form-control" id="InputTitle" value="<?php echo isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
+        <input name="title" class="form-control" id="InputTitle" value="<?php print isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
       </div>
       <div class="form-group">
         <label for="InputPlayer">人数</label>
         <select name="player" class="form-control" id="InputPlayer">
-          <option value="0" <?php echo isset($_GET['player']) ? 'selected' : '' ?>>選択しない</option>
-          <option value="1" <?php echo isset($_GET['player']) && $_GET['player'] == '1' ? 'selected' : '' ?>>1人</option>
-          <option value="2" <?php echo isset($_GET['player']) && $_GET['player'] == '2' ? 'selected' : '' ?>>2人</option>
-          <option value="3" <?php echo isset($_GET['player']) && $_GET['player'] == '3' ? 'selected' : '' ?>>3人</option>
-          <option value="4" <?php echo isset($_GET['player']) && $_GET['player'] == '4' ? 'selected' : '' ?>>4人</option>
-          <option value="5" <?php echo isset($_GET['player']) && $_GET['player'] == '5' ? 'selected' : '' ?>>5人以上</option>
+          <option value="0" <?php print isset($_GET['player']) ? 'selected' : '' ?>>選択しない</option>
+          <option value="1" <?php print isset($_GET['player']) && $_GET['player'] == '1' ? 'selected' : '' ?>>1人</option>
+          <option value="2" <?php print isset($_GET['player']) && $_GET['player'] == '2' ? 'selected' : '' ?>>2人</option>
+          <option value="3" <?php print isset($_GET['player']) && $_GET['player'] == '3' ? 'selected' : '' ?>>3人</option>
+          <option value="4" <?php print isset($_GET['player']) && $_GET['player'] == '4' ? 'selected' : '' ?>>4人</option>
+          <option value="5" <?php print isset($_GET['player']) && $_GET['player'] == '5' ? 'selected' : '' ?>>5人以上</option>
         </select>
       </div>
       <div class="form-group">
         <label for="InputTime">時間</label>
         <select name="time" class="form-control" id="InputTime">
-          <option value="0" <?php echo isset($_GET['time']) ? 'selected' : '' ?>>選択しない</option>
-          <option value="30" <?php echo isset($_GET['time']) && $_GET['time'] == '1' ? 'selected' : '' ?>>30分以下</option>
-          <option value="30-60" <?php echo isset($_GET['time']) && $_GET['time'] == '2' ? 'selected' : '' ?>>30〜60分</option>
-          <option value="60-90" <?php echo isset($_GET['time']) && $_GET['time'] == '3' ? 'selected' : '' ?>>60〜90分</option>
-          <option value="90-120" <?php echo isset($_GET['time']) && $_GET['time'] == '4' ? 'selected' : '' ?>>90〜120分</option>
-          <option value="120" <?php echo isset($_GET['time']) && $_GET['time'] == '5' ? 'selected' : '' ?>>120分以上</option>
+          <option value="0" <?php print isset($_GET['time']) ? 'selected' : '' ?>>選択しない</option>
+          <option value="30" <?php print isset($_GET['time']) && $_GET['time'] == '1' ? 'selected' : '' ?>>30分以下</option>
+          <option value="60" <?php print isset($_GET['time']) && $_GET['time'] == '2' ? 'selected' : '' ?>>30〜60分</option>
+          <option value="90" <?php print isset($_GET['time']) && $_GET['time'] == '3' ? 'selected' : '' ?>>60〜90分</option>
+          <option value="120" <?php print isset($_GET['time']) && $_GET['time'] == '4' ? 'selected' : '' ?>>90〜120分</option>
+          <option value="121" <?php print isset($_GET['time']) && $_GET['time'] == '5' ? 'selected' : '' ?>>120分以上</option>
         </select>
       </div>
       <button type="submit" class="btn btn-default" name="search">検索</button>
@@ -48,7 +48,7 @@ $gameData = getGameData($_GET);
   </div>
   <div class="col-xs-6 col-xs-offset-3">
     <?php if(isset($gameData) && count($gameData)): ?>
-      <p class="alert alert-success"><?php echo count($gameData) ?>件見つかりました！</p>
+      <p class="alert alert-success"><?php print count($gameData) ?>件見つかりました！</p>
       <table class="table">
         <thead>
           <tr>
@@ -60,9 +60,14 @@ $gameData = getGameData($_GET);
       <tbody>
         <?php foreach($gameData as $row): ?>
           <tr>
-            <td><?php echo htmlspecialchars($row['title']) ?></td>
-            <td><?php echo htmlspecialchars($row['player']) ?></td>  
-            <td><?php echo htmlspecialchars($row['time']) ?></td>  
+            <td><?php print htmlspecialchars($row['title']) ?></td>
+            <td><?php print htmlspecialchars($row['min_player']);
+                      print '〜';
+                      print htmlspecialchars($row['max_player']); ?>人</td>  
+            <td><?php print htmlspecialchars($row['min_time']);
+                      print '〜';
+                      print htmlspecialchars($row['max_time']); ?>分</td>  
+            </td>  
           </tr>
         <?php endforeach; ?>
       </tbody>
