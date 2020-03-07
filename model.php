@@ -13,13 +13,22 @@ function getGameData($params){
     $where[] = "title LIKE '%{$params['title']}%'";
   }
   // if(!empty($params['min_player' && 'max_player'])){
-  if(!empty($params['min_player'])){
+  if(!empty($params['player'])){
     switch($_GET['player']) {
-    case '1':
-      $where[] = "min_player = 1";
+    case 1:
+      $where[] = 'min_player = 1';
       break;
     case 2:
-      $where[] = 'min_player <= 3';
+      $where[] = 'min_player <= 2 '. ' AND max_player != 1';
+      break;
+    case 3:
+      $where[] = 'min_player <= 3 '. ' AND max_player > 2';
+      break;
+    case 4:
+      $where[] = 'min_player <= 4 '. ' AND max_player > 3';
+      break;
+    case 5:
+      $where[] = 'min_player <= 5 '. ' AND max_player > 4';
       break;
     }
     // $where[] = 'min_player <= ' . ((int)$params['player']);

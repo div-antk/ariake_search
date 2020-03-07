@@ -25,11 +25,11 @@ $gameData = getGameData($_GET);
         <label for="InputPlayer">人数</label>
         <select name="player" class="form-control" id="InputPlayer">
           <option value="0" <?php print empty($_GET['player']) ?>>選択しない</option>
-          <option value="1" <?php print isset($_GET['player'])?>>1人</option>
-          <option value="2" <?php print isset($_GET['player'])?>>2人</option>
-          <option value="3" <?php print isset($_GET['player'])?>>3人</option>
-          <option value="4" <?php print isset($_GET['player'])?>>4人</option>
-          <option value="5" <?php print isset($_GET['player'])?>>5人以上</option>
+          <option value="1" <?php print isset($_GET['player']) && $_GET['player'] == '1' ?>>1人</option>
+          <option value="2" <?php print isset($_GET['player']) && $_GET['player'] == '2' ?>>2人</option>
+          <option value="3" <?php print isset($_GET['player']) && $_GET['player'] == '3' ?>>3人</option>
+          <option value="4" <?php print isset($_GET['player']) && $_GET['player'] == '4' ?>>4人</option>
+          <option value="5" <?php print isset($_GET['player']) && $_GET['player'] == '5' ?>>5人以上</option>
         </select>
       </div>
       <div class="form-group">
@@ -61,7 +61,7 @@ $gameData = getGameData($_GET);
         <?php foreach($gameData as $row): ?>
           <tr>
             <td><?php print htmlspecialchars($row['title']) ?></td>
-            <td><?php if($row['min_player'] != $row['max_player']){
+            <td><?php if($row['min_player'] == $row['max_player']){
                         print htmlspecialchars($row['min_player']);
                         print '〜';
                         print htmlspecialchars($row['max_player']); 
@@ -69,14 +69,11 @@ $gameData = getGameData($_GET);
                         print htmlspecialchars($row['max_player']);
                       };
                       ?>人</td>  
-            <td><?php if($row['min_time'] != $row['max_time']){
-                        print htmlspecialchars($row['min_time']);
-                        print '〜';
-                        print htmlspecialchars($row['max_time']); 
-                      } else {
-                        print htmlspecialchars($row['max_time']);
-                      };
-                      ?>分</td>  
+                      
+            <td><?php print htmlspecialchars($row['min_time']);
+                      print '〜';
+                      print htmlspecialchars($row['max_time']); ?>分</td>  
+            </td>  
           </tr>
         <?php endforeach; ?>
       </tbody>
