@@ -12,31 +12,43 @@ function getGameData($params){
   if(!empty($params['title'])){
     $where[] = "title LIKE '%{$params['title']}%'";
   }
-  // if(!empty($params['min_player' && 'max_player'])){
   if(!empty($params['player'])){
     switch($_GET['player']) {
     case 1:
       $where[] = 'min_player = 1';
       break;
     case 2:
-      $where[] = 'min_player <= 2 '. ' AND max_player != 1';
+      $where[] = 'min_player <= 2 '. 'AND max_player != 1';
       break;
     case 3:
-      $where[] = 'min_player <= 3 '. ' AND max_player > 2';
+      $where[] = 'min_player <= 3 '. 'AND max_player > 2';
       break;
     case 4:
-      $where[] = 'min_player <= 4 '. ' AND max_player > 3';
+      $where[] = 'min_player <= 4 '. 'AND max_player > 3';
       break;
     case 5:
-      $where[] = 'min_player <= 5 '. ' AND max_player > 4';
+      $where[] = 'min_player <= 5 '. 'AND max_player > 4';
       break;
     }
-    // $where[] = 'min_player <= ' . ((int)$params['player']);
-    // $where[] = 'player <= ' . ((int)$params['player']) . ' AND player <= ' .(int)$params['player'];
   }
   if(!empty($params['time'])){
-    $where[] = 'min_time <= ' . ((int)$params['time']);
-    // $where[] = 'time <= ' . ((int)$params['time'] + 30) . ' AND time >= ' .(int)$params['time'];
+    switch($_GET['time']) {
+    case 30:
+      $where[] = 'max_time <= 30';
+      break;
+    case 60:
+      $where[] = 'min_time >= 30 '. 'AND max_time <= 60';
+      break;
+    case 90:
+      $where[] = 'min_time >= 60 '. 'AND max_time <= 90';
+      break;
+    case 120:
+      $where[] = 'min_time >= 90 '. 'AND max_time <= 120';
+      break;
+    case 121:
+      $where[] = 'max_time > 120 ';
+      break;
+    }
   }
   if($where)
   {
