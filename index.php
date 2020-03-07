@@ -13,7 +13,7 @@ $gameData = getGameData($_GET);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
   </head>
 <body>
-  <h1 class="col-xs-6 col-xs-offset-3">検索フォーム</h1>
+  <h1 class="col-xs-6 col-xs-offset-3">有明亭ゲーム検索</h1>
   <div class="col-xs-6 col-xs-offset-3 well">
 
     <form method="GET">
@@ -36,11 +36,11 @@ $gameData = getGameData($_GET);
         <label for="InputTime">時間</label>
         <select name="time" class="form-control" id="InputTime">
           <option value="0" <?php print empty($_GET['time']) ?>>選択しない</option>
-          <option value="30" <?php print isset($_GET['time']) && $_GET['time'] == '1' ?>>30分以下</option>
-          <option value="60" <?php print isset($_GET['time']) && $_GET['time'] == '2' ?>>30〜60分</option>
-          <option value="90" <?php print isset($_GET['time']) && $_GET['time'] == '3' ?>>60〜90分</option>
-          <option value="120" <?php print isset($_GET['time']) && $_GET['time'] == '4' ?>>90〜120分</option>
-          <option value="121" <?php print isset($_GET['time']) && $_GET['time'] == '5' ?>>120分以上</option>
+          <option value="30" <?php print isset($_GET['time']) ?>>30分以下</option>
+          <option value="60" <?php print isset($_GET['time']) ?>>30〜60分</option>
+          <option value="90" <?php print isset($_GET['time']) ?>>60〜90分</option>
+          <option value="120" <?php print isset($_GET['time']) ?>>90〜120分</option>
+          <option value="121" <?php print isset($_GET['time']) ?>>120分以上</option>
         </select>
       </div>
       <button type="submit" class="btn btn-default" name="search">検索</button>
