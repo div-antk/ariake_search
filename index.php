@@ -61,10 +61,14 @@ $gameData = getGameData($_GET);
         <?php foreach($gameData as $row): ?>
           <tr>
             <td><?php print htmlspecialchars($row['title']) ?></td>
-            <td><?php if($row['min_player'] != $row['max_player']){
+            <td><?php if($row['min_player'] != $row['max_player'] && $row['skip'] == TRUE){
+                        print htmlspecialchars($row['min_player']);
+                        print 'か';
+                        print htmlspecialchars($row['max_player']); 
+                      } elseif($row['min_player'] != $row['max_player']) {
                         print htmlspecialchars($row['min_player']);
                         print '〜';
-                        print htmlspecialchars($row['max_player']); 
+                        print htmlspecialchars($row['max_player']);
                       } else {
                         print htmlspecialchars($row['max_player']);
                       };
