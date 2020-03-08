@@ -1,12 +1,6 @@
 <?php
 function getGameData($params){
-  // include_once('config/db_access.php');
-
-  // $host = "127.0.0.1";
-  $host = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "gamelist";
+  include_once('config/db_access.php');
 
   $Mysqli = new mysqli($host, $username, $password, $dbname);
   if($Mysqli->connect_error){
