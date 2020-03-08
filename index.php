@@ -15,7 +15,6 @@ $gameData = getGameData($_GET);
 <body>
   <h1 class="col-xs-6 col-xs-offset-3">有明亭ゲーム検索</h1>
   <div class="col-xs-6 col-xs-offset-3 well">
-
     <form method="GET">
       <div class="form-group">
         <label for="InputTitle">タイトル</label>
@@ -62,7 +61,7 @@ $gameData = getGameData($_GET);
       <tbody>
         <?php foreach($gameData as $row): ?>
           <tr>
-            <td><a href="detail.php"><?php print htmlspecialchars($row['title']) ;?></a></td>
+            <td><a href="game_detail.php"><?php print htmlspecialchars($row['title']) ;?></a></td>
             <td><?php if($row['min_player'] != $row['max_player'] && $row['skip'] == TRUE){
                         print htmlspecialchars($row['min_player']);
                         print 'か';

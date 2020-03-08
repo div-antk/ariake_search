@@ -23,11 +23,10 @@ try
 
   $dbh = null;
 
-  print '<br><br>';
+  print '<br>ボードゲーム紹介<br>';
 
   $rec = $stmt->fetch(PDO::FETCH_ASSOC);
   
-  // print '<a href="shop_product.php?procode='.$rec['code'].'">';
   print $rec['title'].' - ';
   print $rec['min_time'].'円';
   print '</a>';
