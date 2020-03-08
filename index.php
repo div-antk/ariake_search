@@ -47,8 +47,10 @@ $gameData = getGameData($_GET);
     </form>
   </div>
   <div class="col-xs-6 col-xs-offset-3">
+
+
     <?php if(isset($gameData) && count($gameData)): ?>
-      <p class="alert alert-success"><?php print count($gameData) ?>件見つかりました！</p>
+      <p class="alert alert-success"><?php print count($gameData) ;?>件見つかりました！</p>
       <table class="table">
         <thead>
           <tr>
@@ -60,7 +62,7 @@ $gameData = getGameData($_GET);
       <tbody>
         <?php foreach($gameData as $row): ?>
           <tr>
-            <td><?php print htmlspecialchars($row['title']) ?></td>
+            <td><a href="detail.php"><?php print htmlspecialchars($row['title']) ;?></a></td>
             <td><?php if($row['min_player'] != $row['max_player'] && $row['skip'] == TRUE){
                         print htmlspecialchars($row['min_player']);
                         print 'か';
@@ -85,7 +87,7 @@ $gameData = getGameData($_GET);
         <?php endforeach; ?>
       </tbody>
       </table>
-      <?php else: ?>
+      <?php else :?>
         <p class="alert alert-danger">見つかりませんでした！</p>
       <?php endif; ?>
   </div>

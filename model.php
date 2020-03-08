@@ -2,6 +2,7 @@
 function getGameData($params){
   // include_once('config/db_access.php');
 
+  // $host = "127.0.0.1";
   $host = "localhost";
   $username = "root";
   $password = "";
