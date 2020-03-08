@@ -37,6 +37,9 @@ function getGameData($params){
       break;
     }
   }
+  if(!empty($params['maxplayer'])){
+    $where[] = "max_player = ${params['maxplayer']}";
+  }
   if(!empty($params['time'])){
     switch($_GET['time']) {
     case 30:
