@@ -13,17 +13,18 @@ $gameData = getGameData($_GET);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
   </head>
 <body>
-  <h1 class="col-xs-6 col-xs-offset-3">検索フォーム</h1>
+  <h1 class="col-xs-6 col-xs-offset-3">有明亭ゲーム検索</h1>
   <div class="col-xs-6 col-xs-offset-3 well">
 
     <form method="GET">
       <div class="form-group">
         <label for="InputTitle">タイトル</label>
-        <input type="text" placeholder="タイトルを入力してください" name="title" class="form-control" id="InputTitle" value="<?php print isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
+        <input type="text" placeholder="タイトルを入力してください" name="title" class="form-control" id="InputTitle" style="width:240px"
+        value="<?php print isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
       </div>
       <div class="form-group">
         <label for="InputPlayer">人数</label>
-        <select name="player" class="form-control" id="InputPlayer">
+        <select name="player" class="form-control" id="InputPlayer" style="width:128px">
           <option value="0" <?php print empty($_GET['player']) ?>>選択しない</option>
           <option value="1" <?php print isset($_GET['player'])?>>1人でもできる</option>
           <option value="2" <?php print isset($_GET['player'])?>>2人でもできる</option>
@@ -34,7 +35,8 @@ $gameData = getGameData($_GET);
       </div>
       <div class="form-group">
         <label for="InputMaxPlayer">ゲームの最大人数</label>
-        <input type="text" placeholder="最大人数を入力してください" input name="maxplayer" class="form-control" id="InputTitle" value="<?php print isset($_GET['maxplayer']) ? htmlspecialchars($_GET['maxplayer']) : '' ?>">
+        <input type="text" input name="maxplayer" class="form-control" id="InputTitle" style="width:46px"
+          value="<?php print isset($_GET['maxplayer']) ? htmlspecialchars($_GET['maxplayer']) : '' ?>">
         <!-- <select name="maxplayer" class="form-control" id="InputMaxPlayer">
           <option value="0" <?php print empty($_GET['maxplayer']) ?>>選択しない</option>
           <option value="1" <?php print isset($_GET['maxplayer'])?>>1人</option>
@@ -46,7 +48,7 @@ $gameData = getGameData($_GET);
       </div>
       <div class="form-group">
         <label for="InputTime">時間</label>
-        <select name="time" class="form-control" id="InputTime">
+        <select name="time" class="form-control" id="InputTime" style="width:128px">
           <option value="0" <?php print empty($_GET['time']) ?>>選択しない</option>
           <option value="30" <?php print isset($_GET['time']) && $_GET['time'] == '1' ?>>30分以下</option>
           <option value="60" <?php print isset($_GET['time']) && $_GET['time'] == '2' ?>>30〜60分</option>

@@ -1,4 +1,7 @@
 <?php
+
+try {
+
 function getGameData($params){
   include_once('config/db_access.php');
 
@@ -76,4 +79,12 @@ function getGameData($params){
   }
   return $result;
 }
+}
+
+catch (PDOException $e)
+{
+  print 'ただいま障害により大変ご迷惑をおかけしております。<br>' .$e->getMessage()."<br>";
+  exit();
+}
+
 ?>
