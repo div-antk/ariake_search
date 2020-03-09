@@ -18,22 +18,36 @@ $gameData = getGameData($_GET);
     <form method="GET">
       <div class="form-group">
         <label for="InputTitle">タイトル</label>
-        <input name="title" class="form-control" id="InputTitle" value="<?php print isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
+        <input type="text" placeholder="タイトルを入力してください" name="title" class="form-control" id="InputTitle" style="width:240px"
+        value="<?php print isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
       </div>
       <div class="form-group">
         <label for="InputPlayer">人数</label>
-        <select name="player" class="form-control" id="InputPlayer">
+        <select name="player" class="form-control" id="InputPlayer" style="width:128px">
           <option value="0" <?php print empty($_GET['player']) ?>>選択しない</option>
-          <option value="1" <?php print isset($_GET['player'])?>>1人</option>
-          <option value="2" <?php print isset($_GET['player'])?>>2人</option>
-          <option value="3" <?php print isset($_GET['player'])?>>3人</option>
-          <option value="4" <?php print isset($_GET['player'])?>>4人</option>
-          <option value="5" <?php print isset($_GET['player'])?>>5人以上</option>
+          <option value="1" <?php print isset($_GET['player'])?>>1人でもできる</option>
+          <option value="2" <?php print isset($_GET['player'])?>>2人でもできる</option>
+          <option value="3" <?php print isset($_GET['player'])?>>3人でもできる</option>
+          <option value="4" <?php print isset($_GET['player'])?>>4人でもできる</option>
+          <option value="5" <?php print isset($_GET['player'])?>>5人以上でできる</option>
         </select>
       </div>
       <div class="form-group">
+        <label for="InputMaxPlayer">ゲームの最大人数</label>
+        <input type="text" input name="maxplayer" class="form-control" id="InputTitle" style="width:46px"
+          value="<?php print isset($_GET['maxplayer']) ? htmlspecialchars($_GET['maxplayer']) : '' ?>">
+        <!-- <select name="maxplayer" class="form-control" id="InputMaxPlayer">
+          <option value="0" <?php print empty($_GET['maxplayer']) ?>>選択しない</option>
+          <option value="1" <?php print isset($_GET['maxplayer'])?>>1人</option>
+          <option value="2" <?php print isset($_GET['maxplayer'])?>>2人</option>
+          <option value="3" <?php print isset($_GET['maxplayer'])?>>3人</option>
+          <option value="4" <?php print isset($_GET['maxplayer'])?>>4人</option>
+          <option value="5" <?php print isset($_GET['maxplayer'])?>>5人以上</option>
+        </select> -->
+      </div>
+      <div class="form-group">
         <label for="InputTime">時間</label>
-        <select name="time" class="form-control" id="InputTime">
+        <select name="time" class="form-control" id="InputTime" style="width:128px">
           <option value="0" <?php print empty($_GET['time']) ?>>選択しない</option>
           <option value="30" <?php print isset($_GET['time']) ?>>30分以下</option>
           <option value="60" <?php print isset($_GET['time']) ?>>30〜60分</option>
