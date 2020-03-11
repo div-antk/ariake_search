@@ -1,4 +1,7 @@
 <?php
+
+print "test";
+
 include_once('model.php');
 $gameData = getGameData($_GET);
 ?>
