@@ -5,7 +5,7 @@ try {
 function getGameData($params){
   include_once('config/db_access.php');
 
-  $Mysqli = new mysqli($server, $host, $username, $password, $dbname);
+  $Mysqli = new mysqli($server, $username, $password);
   if($Mysqli->connect_error){
     error_log($Mysqli->connect_error);
     exit;
