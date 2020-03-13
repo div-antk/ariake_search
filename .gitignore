@@ -1,1 +1,3 @@
 config/db_access.php
+config/db_access_local.php
+isDevelopment.txt
