@@ -9,7 +9,6 @@ function getGameData($params){
 
   if (!file_exists($filename)){
   include_once('config/db_access.php');
-  mysql_set_charset('utf8');
   $Mysqli = new mysqli($server, $username, $password, $dbname);
   } else {
   include_once('config/db_access_local.php'); //ローカル環境用
