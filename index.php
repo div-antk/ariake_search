@@ -1,7 +1,5 @@
 <?php
 
-print "test";
-
 include_once('model.php');
 $gameData = getGameData($_GET);
 ?>
@@ -78,7 +76,7 @@ $gameData = getGameData($_GET);
       <tbody>
         <?php foreach($gameData as $row): ?>
           <tr>
-            <td><a href="game_detail.php"><?php print htmlspecialchars($row['title']) ;?></a></td>
+            <td><?php print htmlspecialchars($row['title']) ;?></td>
             <td><?php if($row['min_player'] != $row['max_player'] && $row['skip'] == TRUE){
                         print htmlspecialchars($row['min_player']);
                         print 'か';

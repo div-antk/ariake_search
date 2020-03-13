@@ -1,11 +1,21 @@
 <?php
 
+
 try {
 
 function getGameData($params){
-  include_once('config/db_access.php');
 
+  $filename = './isDevelopment.txt';
+
+  if (!file_exists($filename)){
+  include_once('config/db_access.php');
+  mysql_set_charset('utf8');
   $Mysqli = new mysqli($server, $username, $password, $dbname);
+  } else {
+  include_once('config/db_access_local.php'); //ローカル環境用
+  $Mysqli = new mysqli($host, $username, $password, $dbname); //ローカル環境用
+  }
+
   if($Mysqli->connect_error){
     error_log($Mysqli->connect_error);
     exit;
@@ -70,8 +80,6 @@ function getGameData($params){
     $sql = 'SELECT * FROM gamelist';
     // $sql = print '';
   }
-
-  var_dump($sql);
   
   $GameDataSet = $Mysqli->query($sql);
   
