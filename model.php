@@ -10,7 +10,19 @@ function getGameData($params){
 
   if (!file_exists($filename)){
   include_once('config/db_access.php');
-  $Mysqli = new mysqli($server, $username, $password, $dbname);
+ 
+  $pdo = new PDO(
+    'mysql:host=' . $server . ';dbname=' . $dbname . ';charset=utf8mb4',
+    $username,
+    $password,
+    [
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+      PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
+    ]);
+
+  // $Mysqli = new mysqli($server, $username, $password, $dbname);
+
   } else {
   include_once('config/db_access_local.php'); //ローカル環境用
   $Mysqli = new mysqli($host, $username, $password, $dbname); //ローカル環境用
