@@ -12,6 +12,7 @@ function getGameData($params){
   include_once('config/db_access.php');
 
   $Mysqli = new mysqli($server, $username, $password, $dbname);
+  $Mysqli->set_charset('utf8');
 
   } else {
   include_once('config/db_access_local.php'); //ローカル環境用
