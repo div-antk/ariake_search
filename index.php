@@ -19,7 +19,7 @@ $gameData = getGameData($_GET);
     <form method="GET">
       <div class="form-group">
         <label for="InputTitle">タイトル</label>
-        <input type="text" placeholder="タイトルを入力してください" name="title" class="form-control" id="InputTitle" style="width:240px"
+        <input type="text" placeholder="タイトルを入力してください" name="title" class="form-control" id="InputTitle" style="width:220px"
         value="<?php print isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
       </div>
       <div class="form-group">
