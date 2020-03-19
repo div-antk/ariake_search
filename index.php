@@ -14,8 +14,8 @@ $gameData = getGameData($_GET);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
   </head>
 <body>
-  <h1 class="col-xs-6 col-xs-offset-3">有明亭ゲーム検索</h1>
-  <div class="col-xs-6 col-xs-offset-3 well">
+  <h1 class="col-xs-offset-1 col-xs-10">有明亭ゲーム検索</h1>
+  <div class="col-xs-offset-1 col-xs-10 well">
     <form method="GET">
       <div class="form-group">
         <label for="InputTitle">タイトル</label>
@@ -60,8 +60,10 @@ $gameData = getGameData($_GET);
       <button type="submit" class="btn btn-default" name="search">検索</button>
     </form>
   </div>
-  <div class="col-xs-6 col-xs-offset-3">
+  <!-- <div class="col-xs-6 col-xs-offset-3"> -->
+  <div class="col-xs-offset-1 col-xs-10">
 
+  
 
     <?php if(isset($gameData) && count($gameData)): ?>
       <p class="alert alert-success"><?php print count($gameData) ;?>件見つかりました！</p>
