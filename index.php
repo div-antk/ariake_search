@@ -14,7 +14,9 @@ $gameData = getGameData($_GET);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
   </head>
 <body>
-  <h1 class="col-xs-offset-1 col-xs-10">有明亭ゲーム検索</h1>
+  <h1 class="
+  
+   col-xs-10">有明亭ゲーム検索</h1>
   <div class="col-xs-offset-1 col-xs-10 well">
     <form method="GET">
       <div class="form-group">
