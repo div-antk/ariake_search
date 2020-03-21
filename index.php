@@ -14,9 +14,7 @@ $gameData = getGameData($_GET);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
   </head>
 <body>
-  <h1 class="
-  
-   col-xs-10">有明亭ゲーム検索</h1>
+  <h1 class="col-xs-offset-1 col-xs-10">有明亭ゲーム検索</h1>
   <div class="col-xs-offset-1 col-xs-10 well">
     <form method="GET">
       <div class="form-group">
@@ -26,7 +24,7 @@ $gameData = getGameData($_GET);
       </div>
       <div class="form-group">
         <label for="InputPlayer">人数</label>
-        <select name="player" class="form-control" id="InputPlayer" style="width:128px">
+        <select name="player" class="form-control" id="InputPlayer" style="width:150px">
           <option value="0" <?php print empty($_GET['player']) ?>>選択しない</option>
           <option value="1" <?php print isset($_GET['player'])?>>1人でもできる</option>
           <option value="2" <?php print isset($_GET['player'])?>>2人でもできる</option>
