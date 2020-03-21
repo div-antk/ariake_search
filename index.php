@@ -36,6 +36,7 @@ $gameData = getGameData($_GET);
       </div>
       <div class="form-group">
         <label for="InputMaxPlayer"><i class="fas fa-users"></i> ゲームの最大人数</label>
+        <!-- 数字以外は入力することができない。また、コピペでフォームに入力させない。 -->
           <input type="text" name="maxplayer" class="form-control" id="InputTitle" style="width:46px" pattern="\d*" oncopy="return false" onpaste="return false" style="ime-mode:disabled"
             value="<?php print isset($_GET['maxplayer']) ? htmlspecialchars($_GET['maxplayer']) : '' ?>">
       </div>
