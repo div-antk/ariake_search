@@ -12,18 +12,19 @@ $gameData = getGameData($_GET);
     <title>有明亭ゲーム検索</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 <body>
   <h1 class="col-xs-offset-1 col-xs-10">有明亭ゲーム検索</h1>
   <div class="col-xs-offset-1 col-xs-10 well">
     <form method="GET">
       <div class="form-group">
-        <label for="InputTitle">タイトル</label>
+        <label for="InputTitle"><i class="fas fa-dice"></i> タイトル</label>
         <input type="text" placeholder="タイトルを入力してください" name="title" class="form-control" id="InputTitle" style="width:220px"
         value="<?php print isset($_GET['title']) ? htmlspecialchars($_GET['title']) : '' ?>">
       </div>
       <div class="form-group">
-        <label for="InputPlayer">人数</label>
+        <label for="InputPlayer"><i class="fas fa-user"></i> 人数</label>
         <select name="player" class="form-control" id="InputPlayer" style="width:150px">
           <option value="0" <?php print empty($_GET['player']) ?>>選択しない</option>
           <option value="1" <?php print isset($_GET['player'])?>>1人でもできる</option>
@@ -34,12 +35,12 @@ $gameData = getGameData($_GET);
         </select>
       </div>
       <div class="form-group">
-        <label for="InputMaxPlayer">ゲームの最大人数</label>
+        <label for="InputMaxPlayer"><i class="fas fa-users"></i> ゲームの最大人数</label>
           <input type="text" name="maxplayer" class="form-control" id="InputTitle" style="width:46px" pattern="\d*" oncopy="return false" onpaste="return false" style="ime-mode:disabled"
             value="<?php print isset($_GET['maxplayer']) ? htmlspecialchars($_GET['maxplayer']) : '' ?>">
       </div>
       <div class="form-group">
-        <label for="InputTime">時間</label>
+        <label for="InputTime"><i class="fas fa-hourglass-half"></i> 時間</label>
         <select name="time" class="form-control" id="InputTime" style="width:128px">
           <option value="0" <?php print empty($_GET['time']) ?>>選択しない</option>
           <option value="30" <?php print isset($_GET['time']) ?>>30分以下</option>
@@ -49,6 +50,8 @@ $gameData = getGameData($_GET);
           <option value="121" <?php print isset($_GET['time']) ?>>120分以上</option>
         </select>
       </div>
+      <br>
+      <br>
       <button type="submit" class="btn btn-default" name="search">検索</button>
     </form>
   </div>
