@@ -35,16 +35,8 @@ $gameData = getGameData($_GET);
       </div>
       <div class="form-group">
         <label for="InputMaxPlayer">ゲームの最大人数</label>
-        <input type="text" input name="maxplayer" class="form-control" id="InputTitle" style="width:46px"
-          value="<?php print isset($_GET['maxplayer']) ? htmlspecialchars($_GET['maxplayer']) : '' ?>">
-        <!-- <select name="maxplayer" class="form-control" id="InputMaxPlayer">
-          <option value="0" <?php print empty($_GET['maxplayer']) ?>>選択しない</option>
-          <option value="1" <?php print isset($_GET['maxplayer'])?>>1人</option>
-          <option value="2" <?php print isset($_GET['maxplayer'])?>>2人</option>
-          <option value="3" <?php print isset($_GET['maxplayer'])?>>3人</option>
-          <option value="4" <?php print isset($_GET['maxplayer'])?>>4人</option>
-          <option value="5" <?php print isset($_GET['maxplayer'])?>>5人以上</option>
-        </select> -->
+          <input type="text" name="maxplayer" class="form-control" id="InputTitle" style="width:46px" pattern="\d*" oncopy="return false" onpaste="return false" style="ime-mode:disabled"
+            value="<?php print isset($_GET['maxplayer']) ? htmlspecialchars($_GET['maxplayer']) : '' ?>">
       </div>
       <div class="form-group">
         <label for="InputTime">時間</label>
