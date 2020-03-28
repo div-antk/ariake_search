@@ -15,8 +15,22 @@ $gameData = getGameData($_GET);
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 <body>
-  <h1 class="col-xs-offset-1 col-xs-10">有明亭ゲーム検索</h1>
-  <div class="col-xs-offset-1 col-xs-10 well">
+  <!-- <h1 class="col-xs-offset-1 col-xs-10">有明亭ゲーム検索</h1> -->
+<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+  <h1 class="col-xs-8 col-sm-12 well">有明亭ゲーム検索</h1>
+</nav> -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+      <a class="navbar-brand">有明亭ゲーム検索</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<div class="row">
+  <!-- <div class="col-xs-offset-1 col-xs-10 well"> -->
+  <div class="col-xs-8 col-sm-4 well">
     <form method="GET">
       <div class="form-group">
         <label for="InputTitle"><i class="fas fa-dice"></i> タイトル</label>
@@ -56,8 +70,9 @@ $gameData = getGameData($_GET);
       <button type="submit" class="btn btn-default" name="search">検索</button>
     </form>
   </div>
-  <!-- <div class="col-xs-6 col-xs-offset-3"> -->
-  <div class="col-xs-offset-1 col-xs-10">
+
+  <div class="col-xs-8 col-sm-8">
+  <!-- <div class="col-xs-offset-1 col-xs-10"> -->
 
   
 
@@ -74,8 +89,8 @@ $gameData = getGameData($_GET);
       <tbody>
         <?php foreach($gameData as $row): ?>
           <tr>
-            <td><?php print htmlspecialchars($row['title']) ;?></td>
-            <td><?php if($row['min_player'] != $row['max_player'] && $row['skip'] == TRUE){
+            <td style="width:360px"><?php print htmlspecialchars($row['title']) ;?></td>
+            <td style="width:128px"><?php if($row['min_player'] != $row['max_player'] && $row['skip'] == TRUE){
                         print htmlspecialchars($row['min_player']);
                         print 'か';
                         print htmlspecialchars($row['max_player']); 
@@ -86,7 +101,7 @@ $gameData = getGameData($_GET);
                       } else {
                         print htmlspecialchars($row['max_player']);
                       };
-                      ?>人</td>  
+                      ?>人</td>
             <td><?php if($row['min_time'] != $row['max_time']){
                         print htmlspecialchars($row['min_time']);
                         print '〜';
@@ -103,6 +118,8 @@ $gameData = getGameData($_GET);
         <p class="alert alert-danger">見つかりませんでした！</p>
       <?php endif; ?>
   </div>
-  
+</div>
+</div>
+
   </body>
 </html>
