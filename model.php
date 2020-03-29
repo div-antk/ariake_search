@@ -8,6 +8,9 @@ function getGameData($params){
 
   $filename = './isDevelopment.txt';
 
+  // gitignoreにisDevelopment.txtを載せているため
+  // isDevelopment.txtがある場合はローカル環境に切り替わる
+
   if (!file_exists($filename)){
   include_once('config/db_access.php');
 

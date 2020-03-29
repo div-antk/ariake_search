@@ -11,14 +11,19 @@
 try
 {
 
-  $dsn = 'mysql:dbname=gamelist;host=localhost;charset=utf8';
+  $gamecode = $_GET['gamecode'];
+
+  $dsn = 'mysql:dbname=gamelist;
+          host=localhost;
+          charset=utf8';
   $user = 'root';
   $password = '';
   $dbh = new PDO($dsn, $user, $password);
   $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $sql = 'SELECT title,min_player,max_player,min_time,max_time FROM gamelist WHERE 1';
+  $sql = 'SELECT title,min_player,max_player,min_time,max_time FROM gamelist WHERE code=?';
   $stmt = $dbh->prepare($sql);
+  $data[] = $gamecode;
   $stmt->execute();
 
   $dbh = null;
@@ -26,9 +31,13 @@ try
   print '<br>ボードゲーム紹介<br>';
 
   $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-  
-  print $rec['title'].' - ';
-  print $rec['min_time'].'円';
+  $title=$rec['title'];
+  // $pro_price=$rec['price'];
+  // $pro_image_name=$rec['image'];
+
+
+  print $title.' - ';
+  // print $rec['min_time'].'円';
   print '</a>';
   print '<br>';
 }

@@ -23,7 +23,7 @@ $gameData = getGameData($_GET);
     <p class="lead blog-description">ver.1.2</p>
   </div>
 
-    <!-- <div class="col-xs-offset-1 col-xs-10 well"> -->
+    <!-- 検索フォーム -->
     <div class="col-xs-12 col-sm-4 well">
       <form method="GET">
         <div class="form-group">
@@ -65,6 +65,7 @@ $gameData = getGameData($_GET);
       </form>
     </div>
 
+    <!-- 検索結果 -->
     <div class="col-xs-12 col-sm-8">
       <?php if(isset($gameData) && count($gameData)): ?>
         <p class="alert alert-success"><?php print count($gameData) ;?>件見つかりました！</p>
@@ -79,30 +80,39 @@ $gameData = getGameData($_GET);
         <tbody>
           <?php foreach($gameData as $row): ?>
             <tr>
-              <td style="width:360px"><?php print htmlspecialchars($row['title']) ;?></td>
-              <td style="width:128px"><?php if($row['min_player'] != $row['max_player'] && $row['skip'] == TRUE){
-                          print htmlspecialchars($row['min_player']);
-                          print 'か';
-                          print htmlspecialchars($row['max_player']); 
-                        } elseif($row['min_player'] != $row['max_player']) {
-                          print htmlspecialchars($row['min_player']);
-                          print '〜';
-                          print htmlspecialchars($row['max_player']);
-                        } else {
-                          print htmlspecialchars($row['max_player']);
-                        };
-                        ?>人</td>
-              <td><?php if($row['min_time'] != $row['max_time']){
-                          print htmlspecialchars($row['min_time']);
-                          print '〜';
-                          print htmlspecialchars($row['max_time']); 
-                        } else {
-                          print htmlspecialchars($row['max_time']);
-                        };
-                        ?>分</td>  
+              <td style="width:360px">
+                <!-- <a href="game_detail.php?gamecode='.$row['code'].'"><?php print htmlspecialchars($row['title']) ;?></a> -->
+                <?php print htmlspecialchars($row['title']) ;?>
+              </td>
+              
+              <td style="width:128px">
+                <?php if($row['min_player'] != $row['max_player'] && $row['skip'] == TRUE){
+                  print htmlspecialchars($row['min_player']);
+                  print 'か';
+                  print htmlspecialchars($row['max_player']); 
+                } elseif($row['min_player'] != $row['max_player']) {
+                  print htmlspecialchars($row['min_player']);
+                  print '〜';
+                  print htmlspecialchars($row['max_player']);
+                } else {
+                  print htmlspecialchars($row['max_player']);
+                };
+                ?>人
+              </td>
+              <td>
+                <?php if($row['min_time'] != $row['max_time']){
+                  print htmlspecialchars($row['min_time']);
+                  print '〜';
+                  print htmlspecialchars($row['max_time']); 
+                } else {
+                  print htmlspecialchars($row['max_time']);
+                };
+                ?>分
+              </td>  
             </tr>
           <?php endforeach; ?>
         </tbody>
+
         </table>
         <?php else :?>
           <p class="alert alert-danger">見つかりませんでした！</p>
